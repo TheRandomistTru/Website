@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="icon" type="image/jpg" href="me.jpg">
+        <link rel="icon" type="image/jpg" href="Assets/me.jpg">
         <meta charset = "utf-8">
         <meta name = "viewport" content = "width-device-width, initial-scale-1">
         <title>TheRandomist</title>
-        <link rel="stylesheet" href="https://pyscript.net/releases/2024.5.1/core.css" />
-        <script type="module" src="https://pyscript.net/releases/2024.5.1/core.js"></script>
     </head>
 <style>
 body {
-  background-image: url('me.jpg');
+  background-image: url('assets/me.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
 }
 </style>
     <body>
-        <py-script>
-            print("HELP ME! I'M TRAPPED HERE! PLEASE!")
-        </py-script>
+        <script>
+            console.log("HELP ME! OH DEAR GOD HELP ME! I'M TRAPPED HERE! HELLO?! CAN ANYONE HEAR ME?! OH GOD!")
+
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+ 
+            if (mm + '/' + dd) === '03/10'
+                console.log("AHHHHHHHHHHHHH");
+        </script>
         <h1 style="text-align: center; color: #bc0000;">TheRandomist</h1>
 
         <p style="text-align:center;"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Click me.</a></p>
