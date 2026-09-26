@@ -32,9 +32,9 @@
             var Y = window.innerHeight
             var LookX = lerp(parseFloat(document.getElementById("Iris").style.left), Number((MousePos[0] - (X / 2)) / (X / 48)), 0.08)
             var LookY = lerp(parseFloat(document.getElementById("Iris").style.top), Number((MousePos[1] - (Y / 2)) / (Y / 32)), 0.08)
-            document.getElementById("Eye").style="width: " + (X) + "px; " + "height: " + (Y) + "px; position: absolute; top: 0px; left: 0px; z-index: -1;"
-            document.getElementById("Iris").style="width: " + (X) + "px; " + "height: " + (Y) + "px; position: absolute; top: " + LookY + "px; left: " + LookX + "px; z-index: -1;"
-            document.getElementById("Face").style="width: " + (X) + "px; " + "height: " + (Y) + "px; position: absolute; top: 0px; left: 0px; z-index: -1;"
+            document.getElementById("Eye").style="width: " + (X) + "px; " + "height: " + (Y) + "px; position: absolute; top: 0px; left: 0px; z-index: -1; pointer-events: none;"
+            document.getElementById("Iris").style="width: " + (X) + "px; " + "height: " + (Y) + "px; position: absolute; top: " + LookY + "px; left: " + LookX + "px; z-index: -1; pointer-events: none;"
+            document.getElementById("Face").style="width: " + (X) + "px; " + "height: " + (Y) + "px; position: absolute; top: 0px; left: 0px; z-index: -1; pointer-events: none;"
         }, 10)
         console.log("HELP ME! OH DEAR GOD HELP ME! I'M TRAPPED HERE! HELLO?! CAN ANYONE HEAR ME?! OH GOD!")
     </script>
