@@ -2,27 +2,40 @@
 <html>
     <head>
         <link rel="icon" type="image/jpg" href="Assets/me.jpg">
-        <meta charset = "utf-8">
-        <meta name = "viewport" content = "width-device-width, initial-scale-1">
         <title>TheRandomist</title>
     </head>
-<style>
-body {
-  background-image: url('Assets/me.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-}
-</style>
-    <body>
-        <script>
-            console.log("HELP ME! OH DEAR GOD HELP ME! I'M TRAPPED HERE! HELLO?! CAN ANYONE HEAR ME?! OH GOD!")
-        </script>
-        <h1 style="text-align: center; color: #bc0000;">TheRandomist</h1>
-
-        <p style="text-align:center;"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Click me.</a></p>
+    <body style="overflow: hidden;">
+        <div style="display: flex; justify-content: center; flex-direction: column; align-items: center; z-index: 10;">
+            <h1 style="text-align: center; color: #bc0000; text-shadow: 1px 1px 3px #000000;">TheRandomist</h1>
+                
+            <p style="text-align:center;"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Click me.</a></p>
+        </div>
+        <div>
+            <img src="Assets/MeEye.png" alt="" id="Eye">
+            <img src="Assets/MeIris.png" alt="" id="Iris">
+            <img src="Assets/MeFace.png" alt="" id="Face">
+        </div>
     </body>
-
-
-
+     <script>
+        var MousePos = [0, 0]
+        function lerp(x, y, a) {
+            return x * (1 - a) + y * a;
+        }
+        function UpdatePos(E) {
+            MousePos = [E.clientX, E.clientY]
+        }
+        addEventListener("mousemove", UpdatePos)
+        document.getElementById("Iris").style.left = 0.0
+        document.getElementById("Iris").style.top = 0.0
+        setInterval(() => {
+            var X = window.innerWidth
+            var Y = window.innerHeight
+            var LookX = lerp(parseFloat(document.getElementById("Iris").style.left), Number((MousePos[0] - (X / 2)) / (X / 48)), 0.08)
+            var LookY = lerp(parseFloat(document.getElementById("Iris").style.top), Number((MousePos[1] - (Y / 2)) / (Y / 32)), 0.08)
+            document.getElementById("Eye").style="width: " + (X) + "px; " + "height: " + (Y) + "px; position: absolute; top: 0px; left: 0px; z-index: -1;"
+            document.getElementById("Iris").style="width: " + (X) + "px; " + "height: " + (Y) + "px; position: absolute; top: " + LookY + "px; left: " + LookX + "px; z-index: -1;"
+            document.getElementById("Face").style="width: " + (X) + "px; " + "height: " + (Y) + "px; position: absolute; top: 0px; left: 0px; z-index: -1;"
+        }, 10)
+        console.log("HELP ME! OH DEAR GOD HELP ME! I'M TRAPPED HERE! HELLO?! CAN ANYONE HEAR ME?! OH GOD!")
+    </script>
 </html>
