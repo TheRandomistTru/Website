@@ -24,7 +24,8 @@
         function UpdatePos(E) {
             MousePos = [E.clientX, E.clientY]
         }
-        addEventListener("mousemove", UpdatePos)
+        addEventListener("pointerdown", UpdatePos)
+        addEventListener("pointermove", UpdatePos)
         document.getElementById("Iris").style.left = 0.0
         document.getElementById("Iris").style.top = 0.0
         setInterval(() => {
