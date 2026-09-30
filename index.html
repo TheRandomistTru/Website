@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html id="HTML">
     <head>
         <link rel="icon" type="image/jpg" href="Assets/me.jpg">
         <title>TheRandomist</title>
+        
     </head>
     <body style="overflow: hidden;">
         <div style="display: flex; justify-content: center; flex-direction: column; align-items: center; z-index: 10;">
             <h1 style="text-align: center; color: #bc0000; text-shadow: 1px 1px 3px #000000;">TheRandomist</h1>
                 
-            <p style="text-align:center;"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Click me.</a></p>
+            <p style="text-align:center;"><a id="RRLink" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Click me.</a></p>
         </div>
         <div>
             <img src="Assets/MeEye.png" alt="" id="Eye">
@@ -17,6 +18,7 @@
         </div>
     </body>
      <script>
+        var CURSOR = "url('Assets/HandPoint.png')"
         var MousePos = [0, 0]
         function lerp(x, y, a) {
             return x * (1 - a) + y * a;
@@ -24,7 +26,14 @@
         function UpdatePos(E) {
             MousePos = [E.clientX, E.clientY]
         }
-        addEventListener("pointerdown", UpdatePos)
+        function Click() {
+            CURSOR = "url('Assets/HandPress.png')"
+        }
+        function Unclick() {
+            CURSOR = "url('Assets/HandPoint.png')"
+        }
+        addEventListener("pointerdown", Click)
+        addEventListener("pointerup", Unclick)
         addEventListener("pointermove", UpdatePos)
         document.getElementById("Iris").style.left = 0.0
         document.getElementById("Iris").style.top = 0.0
@@ -36,6 +45,8 @@
             document.getElementById("Eye").style="width: " + (X) + "px; " + "height: " + (Y) + "px; position: absolute; top: 0px; left: 0px; z-index: -1; pointer-events: none;"
             document.getElementById("Iris").style="width: " + (X) + "px; " + "height: " + (Y) + "px; position: absolute; top: " + LookY + "px; left: " + LookX + "px; z-index: -1; pointer-events: none;"
             document.getElementById("Face").style="width: " + (X) + "px; " + "height: " + (Y) + "px; position: absolute; top: 0px; left: 0px; z-index: -1; pointer-events: none;"
+            document.getElementById("HTML").style="cursor: " + CURSOR + ", auto;"
+            document.getElementById("RRLink").style="cursor: " + CURSOR + ", auto;"
         }, 10)
         console.log("HELP ME! OH DEAR GOD HELP ME! I'M TRAPPED HERE! HELLO?! CAN ANYONE HEAR ME?! OH GOD!")
     </script>
